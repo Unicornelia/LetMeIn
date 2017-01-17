@@ -1,0 +1,22 @@
+{
+  "name": "let_me_in",
+  "version": "1.0.0",
+  "description": "See which places are open nearby.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Unicornelia/LetMeIn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Unicornelia/LetMeIn/issues"
+  },
+  "homepage": "https://github.com/Unicornelia/LetMeIn#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
