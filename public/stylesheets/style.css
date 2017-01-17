@@ -18,6 +18,13 @@ height: 90%;
 width: 70%
 }
 
+#map_pub {
+float: right;
+border: 5px solid grey;
+height: 90%;
+width: 70%
+}
+
 
 button {
 	-moz-box-shadow: 3px 4px 0px 0px #8a2a21;
