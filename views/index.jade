@@ -2,14 +2,12 @@ extends layout
 
 block content
   div(id='map')
+    #content
   script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBe6mYpL9Z6BC38pc8dwCIBXfapgvNd_Sw&callback=initMap')
   script(src='/javascripts/initMap.js')
 
   div(class='main')
-    h3 Hello
+    h3 Welcome to Let Me In, the interactive Pub Finder! No more mindless walking in crazy hours in London!
   
-    button(type='button') Get me my location!
-    br
-    br
-    a(href='/pubs', target='_blank') Pubs
+    button(type='button') Show me the pubs!
   
