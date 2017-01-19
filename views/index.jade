@@ -2,18 +2,19 @@ extends layout
 
 block content
   div(id='map')
+  script(src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js")
   script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBe6mYpL9Z6BC38pc8dwCIBXfapgvNd_Sw&callback=initMap')
   script(src='/javascripts/geolocate.js')
   script(src='/javascripts/getPlaces.js')
   script(src='/javascripts/controller.js')
 
   div(class='main')
-    h3 Hello
+
   
     button(type='button') Get me my location!
     button(type='button' id="bar_nearby") Get bars nearby
     br
     br
     a(href='/pubs', target='_blank') Pubs
-    ul#listPlaces
+    ol#listPlaces
   
