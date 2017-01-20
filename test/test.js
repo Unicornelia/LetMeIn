@@ -20,7 +20,7 @@ describe('/', function () {
     });
   });
 
-  it('should say "Hello there"', function (done) {
+  it('should say "Let Me In!"', function (done) {
     http.get('http://localhost:3000', function (res) {
       var data = '';
 
@@ -29,9 +29,10 @@ describe('/', function () {
       });
 
       res.on('end', function () {
-        expect(data).to.include('Hello!');
+        expect(data).to.include('Let Me In!');
         done();
       });
     });
+
   });
 });
