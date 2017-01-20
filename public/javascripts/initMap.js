@@ -1,11 +1,12 @@
-function InitMap() {
+function GetCurrentLocation(){
+}
 
-  console.log("first")
+ GetCurrentLocation.prototype.initMap = function(mapSetup, callPlaces) {
   map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 51.5042827, lng: -0.1314301},
   zoom: 13
 });
-var infoWindow = new google.maps.InfoWindow({map: map});
+  this.infoWindow = new google.maps.InfoWindow({map: map});
 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
@@ -13,17 +14,8 @@ if (navigator.geolocation) {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
-
-    infoWindow.setPosition(this.pos);
-    infoWindow.setContent('You are Here');
-    map.setCenter(this.pos);
-    map.setZoom(17)
-    console.log(this.pos)
-    var getPlaces = new GetPlaces(this.pos)
-    document.getElementById("bar_nearby").addEventListener("click", function() {
-      getPlaces.requestPlaces(getPlaces.displayPlaces.bind(getPlaces), getPlaces.getCoordinates.bind(getPlaces), getPlaces.initializeMap.bind(getPlaces))
-    })
-    console.log(this.pos)
+    mapSetup(this.pos)
+    callPlaces(this.pos)
   }, function() {
 
     handleLocationError(true, infoWindow, map.getCenter());
@@ -31,4 +23,20 @@ if (navigator.geolocation) {
 } else {
   handleLocationError(false, infoWindow, map.getCenter());
 }
+}
+
+GetCurrentLocation.prototype.mapSetup = function(position) {
+  this.infoWindow.setPosition(position);
+  this.infoWindow.setContent('You are Here');
+  map.setCenter(position);
+  map.setZoom(17)
+}
+
+
+GetCurrentLocation.prototype.callPlaces = function(position) {
+  var getPlaces = new GetPlaces(position)
+  document.getElementById("bar_nearby").addEventListener("click", function() {
+    // window.location.reload()
+    getPlaces.requestPlaces(getPlaces.getFunctions.bind(getPlaces))
+  })
 }
