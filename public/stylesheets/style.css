@@ -1,6 +1,6 @@
 html,body {
   background-color: black;
-  color: white;
+  color: #007f7f;
   height: 100%;
   margin: 20px;
   padding: 0;
@@ -8,7 +8,13 @@ html,body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00ffff;
+}
+
+.infowindow {
+  padding: 5px;
+  border: 1px solid black;
+  background-color: lightgrey;
 }
 
 #map {
