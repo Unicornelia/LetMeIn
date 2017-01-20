@@ -1,45 +1,13 @@
-function GetPlaces() {
-  this.pos = {};
-};
+function GetPlaces(pos) {
+  this.pos = pos
+  console.log(this.pos)
 
-GetPlaces.prototype.initMap = function() {
-    map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 51.5042827, lng: -0.1314301},
-    zoom: 13
-  });
-  var infoWindow = new google.maps.InfoWindow({map: map});
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      this.pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      console.log(this.map)
-      infoWindow.setPosition(this.pos);
-      infoWindow.setContent('You are Here');
-      map.setCenter(this.pos);
-      map.setZoom(17)
-
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-  } else {
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
 }
-
-GetPlaces.prototype.handleLocationError = function(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(this.pos);
-  infoWindow.setContent(browserHasGeolocation ?
-    'Error: The Geolocation service failed.' :
-    'Error: Your browser doesn\'t support geolocation.');
-}
-
 
 GetPlaces.prototype.requestPlaces = function(displayPlaces, getCoordinates, initializeMap){
+  console.log(this.pos)
       this.xhr = new XMLHttpRequest();
-      this.xhr.open("GET", "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=51.5173637,-0.075455&radius=200&type=bar&openNow=true&key=AIzaSyBe6mYpL9Z6BC38pc8dwCIBXfapgvNd_Sw&libraries=places", true)
+      this.xhr.open("GET", "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+this.pos.lat+","+this.pos.lng+"&radius=200&type=bar&openNow=true&key=AIzaSyBe6mYpL9Z6BC38pc8dwCIBXfapgvNd_Sw&libraries=places", true)
       this.xhr.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
           this.myText = JSON.parse(this.responseText);
