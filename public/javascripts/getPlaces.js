@@ -9,8 +9,6 @@ GetPlaces.prototype.initMap = function() {
   });
   var infoWindow = new google.maps.InfoWindow({map: map});
 
-
-
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       this.pos = {
@@ -22,17 +20,13 @@ GetPlaces.prototype.initMap = function() {
       infoWindow.setContent('You are Here');
       map.setCenter(this.pos);
       map.setZoom(17)
-      // document.getElementById("bar_nearby").addEventListener("click", function() {
-      //   this.requestPlaces(this.displayPlaces(), this.getCoordinates(), this.initializeMap())
-      // })
+
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
   } else {
-
     handleLocationError(false, infoWindow, map.getCenter());
   }
-
 }
 
 GetPlaces.prototype.handleLocationError = function(browserHasGeolocation, infoWindow, pos) {
@@ -53,10 +47,8 @@ GetPlaces.prototype.requestPlaces = function(displayPlaces, getCoordinates, init
           getCoordinates()
           initializeMap()
         }
-        }
-
+      };
       this.xhr.send()
-
     };
 
 
@@ -73,30 +65,18 @@ GetPlaces.prototype.requestPlaces = function(displayPlaces, getCoordinates, init
     for(var i = 0; i < this.xhr.myText.results.length; i ++){
     this.all.push({lat: this.xhr.myText.results[i].geometry.location.lat,
                    lng: this.xhr.myText.results[i].geometry.location.lng})
-    // console.log(this.all)
-    // console.log(this.geo.pos)
-  }
-
+    }
   }
 
   GetPlaces.prototype.initializeMap = function () {
 
-      // var map = new google.maps.Map(document.getElementById('map'), {
-      //   zoom: 15,
-      //   center: {lat: 51.5173637, lng: -0.0856259}
-      // });
-
-
-      var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-      var markers = this.all.map(function(location, i) {
-
-        return new google.maps.Marker({
-          position: location,
-          label: labels[i % labels.length]
+    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var markers = this.all.map(function(location, i) {
+      return new google.maps.Marker({
+        position: location,
+        label: labels[i % labels.length]
         });
       });
 
-      var markerCluster = new MarkerClusterer(map, markers)
-
-        }
+    var markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'})
+    }
