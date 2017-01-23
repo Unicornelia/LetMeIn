@@ -36,7 +36,6 @@ GetCurrentLocation.prototype.mapSetup = function(position) {
 GetCurrentLocation.prototype.callPlaces = function(position) {
   var getPlaces = new GetPlaces(position)
   document.getElementById("bar_nearby").addEventListener("click", function() {
-    // window.location.reload()
     getPlaces.requestPlaces(getPlaces.getFunctions.bind(getPlaces))
   })
 }
