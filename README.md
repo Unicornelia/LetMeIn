@@ -1,26 +1,27 @@
 
 # Let Me In
 
-A simple app to locate open bars in your current area at the current time.
+A simple app to show you the open bars in your current area at the current time.
 
 Authors:
 
   [Kornelia Szabo](https://github.com/Unicornelia)  
   [Courtney Osborn](https://github.com/CourtneyLO)  
   [George Eaton](https://github.com/Gweaton)  
-  [Russel Yeo](https://github.com/rus64)  
+  [Russell Yeo](https://github.com/rus64)  
 
 ## Reason for Creation
 
-We had five days to create an application of the groups choice.
+We had five days to create an application of the group's choice.
 
-This application was created to solve the problem of leaving a bar at closing and not knowing of an open bar to go to next.  
+The app was created to solve the problem of leaving a bar at closing time and not knowing of an open bar to go to next.  
 
 ## How to Run the Application
 
 - $ git clone https://github.com/Unicornelia/LetMeIn
 - $ brew install node
 - $ npm start
+- In your browser, you'll need to install the 'Allow-Control-Allow-Origin' extension in Chrome to run the app locally. You     can find it here: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en
 - $ visit localhost:3000
 
 ### User Stories
