@@ -80,7 +80,7 @@ I want to see closing times for the place
 ```
 
 ## Technologies
-- JavaScript
+- JavaScript, Node.js
 - CSS, HTML
 - Google API
 - Jade
